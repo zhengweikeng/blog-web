@@ -1,20 +1,25 @@
-<template lang='jade'>
+<template lang="jade">
 .site
-  header
+  blog-header
   .site-content
+    .container-fluid
+      | hello world
+  blog-footer
 </template>
 
 <script>
-import header from './header.vue'
+import BlogHeader from './header.vue'
+import BlogFooter from './footer.vue'
 
 export default {
   components: {
-    header
+    blogHeader: BlogHeader,
+    blogFooter: BlogFooter
   }
 }
 </script>
 
-<style lang='less'>
+<style lang="less">
 .site {
   display: flex;
   min-height: 100vh;
