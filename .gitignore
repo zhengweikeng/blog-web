@@ -41,3 +41,6 @@ typings
 
 # webpack build
 dist
+
+#html
+.html
