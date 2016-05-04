@@ -1,8 +1,9 @@
 <template lang="jade">
 .site
   blog-header
-  .site-content.container
-    router-view
+  .site-content
+    .container
+      router-view
   blog-footer
 </template>
 
@@ -15,7 +16,7 @@ export default {
     blogHeader: BlogHeader,
     blogFooter: BlogFooter
   }
-}
+} 
 </script>
 
 <style lang="less">
@@ -29,6 +30,16 @@ export default {
     width: 100%;
     display: flex;
     flex-direction: column;
+    .container {
+      display: flex;
+      flex-direction: column;
+      flex: 1;
+    }
+    @media(max-width: 750px) {
+      .container {
+        width: 100%;
+      }
+    }
   }
 }
 </style>

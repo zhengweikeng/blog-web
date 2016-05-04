@@ -8,12 +8,69 @@
       .tag
         label tag:&nbsp;&nbsp;
         span node
-    li.list-group-item test
-    li.list-group-item test
-    li.list-group-item test
-    li.list-group-item test
-    li.list-group-item test
-    li.list-group-item test
+    li.list-group-item
+      .title 
+        a(href="") Node.js关于Stream的理解
+        span.time 2016-01-01
+      .tag
+        label tag:&nbsp;&nbsp;
+        span node
+    li.list-group-item
+      .title 
+        a(href="") Node.js关于Stream的理解
+        span.time 2016-01-01
+      .tag
+        label tag:&nbsp;&nbsp;
+        span node
+    li.list-group-item
+      .title 
+        a(href="") Node.js关于Stream的理解
+        span.time 2016-01-01
+      .tag
+        label tag:&nbsp;&nbsp;
+        span node
+    li.list-group-item
+      .title 
+        a(href="") Node.js关于Stream的理解
+        span.time 2016-01-01
+      .tag
+        label tag:&nbsp;&nbsp;
+        span nodess
+    li.list-group-item
+      .title 
+        a(href="") Node.js关于Stream的理解
+        span.time 2016-01-01
+      .tag
+        label tag:&nbsp;&nbsp;
+        span node
+    li.list-group-item
+      .title 
+        a(href="") Node.js关于Stream的理解
+        span.time 2016-01-01
+      .tag
+        label tag:&nbsp;&nbsp;
+        span node
+    li.list-group-item
+      .title 
+        a(href="") Node.js关于Stream的理解
+        span.time 2016-01-01
+      .tag
+        label tag:&nbsp;&nbsp;
+        span node
+    li.list-group-item
+      .title 
+        a(href="") Node.js关于Stream的理解
+        span.time 2016-01-01
+      .tag
+        label tag:&nbsp;&nbsp;
+        span node
+    li.list-group-item
+      .title 
+        a(href="") Node.js关于Stream的理解
+        span.time 2016-01-01
+      .tag
+        label tag:&nbsp;&nbsp;
+        span nodess
   nav
     ul.pager
       li
@@ -21,6 +78,18 @@
       li
         a(v-link="") &nbsp;&nbsp;&nbsp;&nbsp;Next&nbsp;&nbsp;&nbsp;&nbsp;
 </template>
+
+<script>
+export default {
+  ready: function () {
+    console.log(this.$resource)
+    this.$http.get('/posts')
+    .then((datas) => {
+      console.log(datas)
+    }, (err) => console.log(err))
+  }
+}
+</script>  
 
 
 <style lang="less">
