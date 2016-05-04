@@ -1,9 +1,8 @@
 <template lang="jade">
 .site
   blog-header
-  .site-content
-    .container-fluid
-      | hello world
+  .site-content.container
+    router-view
   blog-footer
 </template>
 
@@ -27,6 +26,9 @@ export default {
   
   .site-content {
     flex: 1;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
   }
 }
 </style>

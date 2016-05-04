@@ -1,9 +1,9 @@
-import Home from '../../components/home/home.vue'
+import PostList from '../../components/posts/post.list.vue'
 
 const mapping = (router) => {
   router.map({
     '/': {
-      component: Home
+      component: PostList
     }
   })
 }

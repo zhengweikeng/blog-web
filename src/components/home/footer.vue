@@ -12,7 +12,7 @@
   font-size: 1rem;
   color: #BBC7CC;
   line-height: 1.75em;
-  margin-top:50px;
+  border-top: 1px solid #e7e7e7;
 }
 .copyright {
   text-align: center;

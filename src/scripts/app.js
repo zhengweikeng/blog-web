@@ -1,4 +1,4 @@
-require('../styles/github-framework.min.css')
+// require('../styles/github-framework.min.css')
 require('bootstrap/dist/css/bootstrap.min.css')
 
 import Vue from 'vue'
