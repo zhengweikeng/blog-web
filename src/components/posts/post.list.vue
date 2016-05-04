@@ -82,8 +82,7 @@
 <script>
 export default {
   ready: function () {
-    console.log(this.$resource)
-    this.$http.get('/posts')
+    this.$http.get('posts/years')
     .then((datas) => {
       console.log(datas)
     }, (err) => console.log(err))
