@@ -1,5 +1,6 @@
 <template lang="jade">
 .post-list.vertical
+  tags-select
   ul.list-group
     li.list-group-item
       .title 
@@ -80,12 +81,21 @@
 </template>
 
 <script>
+import TagsSelect from '../tags/tags.select.vue'
 export default {
   ready: function () {
     this.$http.get('posts/years')
-    .then((datas) => {
-      console.log(datas)
+    .then((res) => {
+      const years = res.datas
     }, (err) => console.log(err))
+  },
+  
+  components: {
+    TagsSelect
+  },
+  
+  data() {
+    
   }
 }
 </script>  
