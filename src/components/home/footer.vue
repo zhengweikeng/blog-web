@@ -13,6 +13,7 @@
   color: #BBC7CC;
   line-height: 1.75em;
   border-top: 1px solid #e7e7e7;
+  margin-top: 15px;
 }
 .copyright {
   text-align: center;

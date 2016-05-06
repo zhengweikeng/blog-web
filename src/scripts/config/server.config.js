@@ -1,9 +1,9 @@
 const serverEnv = {
   production: {
-    server: '127.0.0.1:3000'
+    server: '192.168.31.225:3000'
   },
   development: {
-    server: 'http://127.0.0.1:3000'
+    server: 'http://192.168.31.225:3000'
   }
 }
 

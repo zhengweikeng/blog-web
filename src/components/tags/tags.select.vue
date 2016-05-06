@@ -1,34 +1,37 @@
 <template lang="jade">
-.btn-group(role="group" style="margin-bottom: 10px;")
-  button(v-for="year in years" 
-    v-bind:class="['btn', 'btn-default', currIndex === $index ? 'active' : '']"
-    v-on:click="changeYears($index, year)") {{year}}
+.tag(v-if="tags.length > 0")
+  label tag:&nbsp;&nbsp;
+  a(v-for="tag in tags") {{tag}} 
 </template>
 
 <script>
 export default {
   ready() {
-    this.$http.get('posts/years')
-    .then(function(res) {
-      this.$set('years', res.data)
-      if (Array.isArray(res.data) && res.data.length > 0) {
-        this.$dispatch('year-change', res.data[0])
-      }
+    let url = 'tags'
+    if (this.year && this.title) {
+      url += `/${this.year}/${this.title}`
+    } 
+    
+    this.$http.get(url)
+    .then((res) => {
+      this.$set('tags', res.data)
     })
   },
   
+  props: ['year', 'title'],
+  
   data() {
     return {
-      years: [],
-      currIndex: 0
-    }
-  },
-  
-  methods: {
-    changeYears(index, year) {
-      this.currIndex = index
-      this.$dispatch('year-change', year)
+      tags: []
     }
   }
 }
 </script>
+
+<style lang="less">
+.tag {
+  a {
+    cursor: pointer
+  }
+}
+</style>

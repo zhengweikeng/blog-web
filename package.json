@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "dev": "./node_modules/.bin/jade -P ./src/index.jade & NODE_ENV=development ./node_modules/.bin/webpack-dev-server --progress --history-api-fallback --config ./build/webpack.dev.config.js"
+    "dev": "./node_modules/.bin/jade -P ./src/index.jade & NODE_ENV=development ./node_modules/.bin/webpack-dev-server --progress --history-api-fallback --host 0.0.0.0 --config ./build/webpack.dev.config.js"
   },
   "author": "",
   "license": "ISC",

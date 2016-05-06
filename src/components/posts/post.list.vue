@@ -1,20 +1,23 @@
 <template lang="jade">
 .post-list.vertical
+  years-select
   tags-select
   posts-title(v-bind:posts="allPosts" v-bind:year="currYear")
   posts-pager(v-bind:total="total" v-bind:limit="limit" v-bind:curr-page="currPage")  
 </template>
 
 <script>
+import YearsSelect from '../tags/years.select.vue'
 import TagsSelect from '../tags/tags.select.vue'
 import PostsTitle from './posts.title.vue'
 import PostsPager from './posts.pager.vue'
 
 export default {
   components: {
-    TagsSelect,
+    YearsSelect,
     PostsTitle,
-    PostsPager
+    PostsPager,
+    TagsSelect
   },
   
   data() {
