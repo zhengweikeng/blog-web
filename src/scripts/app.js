@@ -1,5 +1,5 @@
-// require('../styles/github-framework.min.css')
 require('bootstrap/dist/css/bootstrap.min.css')
+require('github-markdown-css')
 
 import Vue from 'vue'
 import VueRouter from 'vue-router'
