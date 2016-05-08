@@ -2,27 +2,24 @@
 ul.list-group
   li.list-group-item(v-for="p in currPosts")
     div(v-bind:class="p.tag ? 'title' : ''")
-      a(v-link="{name: 'postsDetail', params: {year: year, title: p.title}}") {{p.title}}
+      a(v-link="{name: 'postsDetail', params: {year: p.year, title: p.title}}") {{p.title}}
       span.time {{p.postTime}}
-    .tag(v-if="p.tag")
-      label tag:&nbsp;&nbsp;
-      span {{p.tag.join(',')}}
+    tags-select(v-bind:p-tags="p.tag")
 </template>
 
 <script>
+import TagsSelect from '../tags/tags.select.vue'
+
 export default {
-  props: ['posts', 'year'],
-  
-  data() {
-    return {
-      
-    }
+  components: {
+    TagsSelect
   },
+  props: ['posts'],
   
   computed: {
     currPosts() {
-      if (this.posts[this.year]) {
-        return this.posts[this.year].catalogues
+      if (this.posts) {
+        return this.posts.catalogues
       }
       return []
     }

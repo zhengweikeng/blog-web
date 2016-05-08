@@ -2,7 +2,7 @@
 .post-list.vertical
   years-select
   tags-select
-  posts-title(v-bind:posts="allPosts" v-bind:year="currYear")
+  posts-title(v-bind:posts="allPosts[currYear]")
   posts-pager(v-bind:total="total" v-bind:limit="limit" v-bind:curr-page="currPage")  
 </template>
 
@@ -56,25 +56,5 @@ export default {
 
 
 <style lang="less">
-.vertical {
-  flex: 1;
-  display: flex;
-  flex-direction: column;
-  
-  .list-group {
-    flex: 1;
-    
-    .title {
-      margin-bottom: 10px;
-      display: flex;
-      justify-content: space-between;
-      
-      .time {
-        font-size: 12px;
-        display: flex;
-        align-items: center;
-      }
-    }
-  }
-}
+@import "./posts.less";
 </style>
