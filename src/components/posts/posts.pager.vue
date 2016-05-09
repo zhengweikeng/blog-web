@@ -10,7 +10,15 @@ nav
 </template>
 
 <script>
+import {fetchPosts} from '../../scripts/actions/posts.action'
+
 export default {
+  vuex: {
+    actions: {
+      fetchPosts
+    }
+  },
+  
   props: ['total', 'limit'],
   
   data() {
@@ -22,10 +30,12 @@ export default {
   methods: {
     pagerNext() {
       if (this.totalPage - 1 > 0 && this.currPage < this.totalPage - 1)
-        this.$dispatch('page-change', ++this.currPage) 
+        // this.$dispatch('page-change', ++this.currPage)
+        this.fetchPosts({page: ++this.currPage, limit: this.limit}) 
     },
     pagerPrev() {
-      if (this.currPage > 0) this.$dispatch('page-change', --this.currPage) 
+      if (this.currPage > 0) //this.$dispatch('page-change', --this.currPage)
+        this.fetchPosts({page: --this.currPage, limit: this.limit})
     }
   },
   

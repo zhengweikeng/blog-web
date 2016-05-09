@@ -10,12 +10,14 @@
 <script>
 import BlogHeader from './header.vue'
 import BlogFooter from './footer.vue'
+import store from '../../scripts/config/store'
 
 export default {
   components: {
     blogHeader: BlogHeader,
     blogFooter: BlogFooter
-  }
+  },
+  store
 } 
 </script>
 
