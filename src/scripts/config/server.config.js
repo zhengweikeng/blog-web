@@ -3,7 +3,7 @@ const serverEnv = {
     server: '192.168.31.225:3000'
   },
   development: {
-    server: 'http://192.168.31.225:3000'
+    server: 'http://127.0.0.1:3000'
   }
 }
 

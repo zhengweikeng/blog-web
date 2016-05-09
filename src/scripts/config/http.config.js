@@ -1,8 +1,9 @@
 import serverConfig from './server.config'
-const httpBaseConfig = (Vue) => {
+import Vue from 'vue'
+const httpBaseConfig = () => {
   Vue.http.options.root = serverConfig.server
 }
-const interceptorsConfig = (Vue, router) => {
+const interceptorsConfig = (router) => {
   Vue.http.interceptors.push({
     request: function (request) {
       return request

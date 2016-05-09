@@ -37,6 +37,7 @@
   "dependencies": {
     "bootstrap": "^3.3.6",
     "github-markdown-css": "^2.3.0",
-    "vue": "^1.0.21"
+    "vue": "^1.0.21",
+    "vuex": "^0.6.3"
   }
 }

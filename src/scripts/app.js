@@ -14,7 +14,7 @@ Vue.use(vueResource)
 const router = new VueRouter()
 routerMapping(router)
 
-httpBaseConfig(Vue)
-interceptorsConfig(Vue, router)
+httpBaseConfig()
+interceptorsConfig(router)
 
 router.start(App, '#blog')
