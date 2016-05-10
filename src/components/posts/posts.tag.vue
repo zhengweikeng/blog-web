@@ -13,9 +13,11 @@ import PostsTitle from './posts.title.vue'
 import {fetchPostsByTag} from '../../scripts/actions/posts.action'
 
 export default {
-  ready() {
-    const tag = this.$route.params.tag
-    this.fetchPostsByTag({tag, page: 0, limit: 5})
+  route: {
+    data() {
+      const tag = this.$route.params.tag
+      this.fetchPostsByTag({tag, page: 0, limit: 5})  
+    }
   },
   
   vuex: {
