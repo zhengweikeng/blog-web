@@ -6,9 +6,11 @@
 </template>
 
 <script>
+import {year} from '../../scripts/getters/tags'
+
 export default {
   ready() {
-    if (!this.pTags) {
+    if (this.query === true) {
       let url = 'tags'
       if (this.year && this.title) {
         url += `/${this.year}/${this.title}`
@@ -22,7 +24,13 @@ export default {
     
   },
   
-  props: ['year', 'title', 'pTags'],
+  vuex: {
+    getters: {
+      year
+    }
+  },
+  
+  props: ['title', 'query', 'pTags'],
   
   data() {
     return {

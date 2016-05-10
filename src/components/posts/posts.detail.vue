@@ -2,7 +2,7 @@
 div
   .title
     h3 {{title}}
-    tags-select(v-bind:year="year" v-bind:title="title") 
+    tags-select(v-bind:year="year" v-bind:title="title" query="true") 
         
   Spinner(v-if="loading")
   {{{blogHtml}}}

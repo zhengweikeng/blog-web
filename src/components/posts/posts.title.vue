@@ -4,7 +4,7 @@ ul.list-group
     div(v-bind:class="p.tag ? 'title' : ''")
       a(v-link="{name: 'postsDetail', params: {year: p.year, title: p.title}}") {{p.title}}
       span.time {{p.postTime}}
-    tags-select(v-bind:p-tags="p.tag")
+    tags-select(v-bind:p-tags="p.tag" query="false")
 </template>
 
 <script>
