@@ -10,47 +10,52 @@ nav
 </template>
 
 <script>
-import {fetchPosts} from '../../scripts/actions/posts.action'
+import {fetchPosts, setPage} from '../../scripts/actions/posts.action'
+import {total, currPage} from '../../scripts/getters/posts'
 
 export default {
   vuex: {
     actions: {
-      fetchPosts
+      fetchPosts,
+      setPage
+    },
+    getters: {
+      total,
+      currPage
     }
   },
   
-  props: ['total', 'limit'],
-  
   data() {
     return {
-      currPage: 0
+      limit: 5,
     }
   },
   
   methods: {
     pagerNext() {
-      if (this.totalPage - 1 > 0 && this.currPage < this.totalPage - 1)
-        // this.$dispatch('page-change', ++this.currPage)
-        this.fetchPosts({page: ++this.currPage, limit: this.limit}) 
+      if (this.totalPage - 1 > 0 && this.currPage < this.totalPage - 1) {
+        const page = this.currPage + 1
+        this.fetchPosts({page, limit: this.limit})
+        this.setPage(page) 
+      }
     },
     pagerPrev() {
-      if (this.currPage > 0) //this.$dispatch('page-change', --this.currPage)
-        this.fetchPosts({page: --this.currPage, limit: this.limit})
+      if (this.currPage > 0) {
+        const page = this.currPage - 1
+        this.fetchPosts({page, limit: this.limit})
+        this.setPage(page)
+      } 
     }
   },
   
   computed: {
     totalPage() {
       if (this.total >= 0 && this.limit > 0) {
-        return Math.floor(this.total / this.limit) + 1
+        const rest = this.total % this.limit
+        let totalPage = Math.floor(this.total / this.limit)
+        return rest > 0 ? totalPage + 1 : totalPage 
       }
       return 0
-    }
-  },
-  
-  events: {
-    'resetCurrPage': function() {
-      this.currPage = 0
     }
   }
 }

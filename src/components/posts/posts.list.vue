@@ -2,7 +2,7 @@
 .post-list.vertical
   years-select
   tags-select
-  posts-title(v-bind:posts="allPosts[currYear]")
+  posts-title
   posts-pager(v-bind:total="total" v-bind:limit="limit" v-bind:curr-page="currPage")  
 </template>
 
@@ -26,7 +26,6 @@ export default {
   vuex: {
     getters: {
       currYear: year,
-      allPosts: posts,
       total
     }
   },

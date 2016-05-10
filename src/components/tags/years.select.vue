@@ -7,6 +7,7 @@
 
 <script>
 import {selectYear} from '../../scripts/actions/tags.action'
+import {fetchPosts, setPage} from '../../scripts/actions/posts.action'
 
 export default {
   ready() {
@@ -14,15 +15,17 @@ export default {
     .then(function(res) {
       this.$set('years', res.data)
       if (Array.isArray(res.data) && res.data.length > 0) {
-        // this.$dispatch('year-change', res.data[0])
         this.selectYear(res.data[0])
+        this.fetchPosts({page: 0, limit: 5})
       }
     })
   },
   
   vuex: {
     actions: {
-      selectYear
+      selectYear,
+      fetchPosts,
+      setPage
     }
   },
   
@@ -36,8 +39,9 @@ export default {
   methods: {
     changeYears(index, year) {
       this.currIndex = index
-      // this.$dispatch('year-change', year)
       this.selectYear(year)
+      this.fetchPosts({page: 0, limit: 5})
+      this.setPage(0)
     }
   }
 }

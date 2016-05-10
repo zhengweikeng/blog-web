@@ -4,28 +4,28 @@ import mutationType from './mutation.type'
 
 Vue.use(Vuex)
 
+const debug = process.env.NODE_ENV !== 'production'
+Vue.config.debug = debug
+
 const state = {
   year: 0,
-  posts: [],
-  total: 0
+  posts: {},
+  currPage: 0
 }
 
-const mutation = {
+const mutations = {
   [mutationType.SELECTION_YEAR] (state, year) {
     state.year = year
   },
-  [mutationType.FETCH_POSTS] (state, {page, limit}) {
-    Vue.http.get(`posts/${state.year}`, {page, limit})
-    .then(function(res) {
-      if (res.data) {
-        state.posts[state.year] = res.data
-        state.total = res.data.total
-      }
-    })
+  [mutationType.FETCH_POSTS] (state, posts) {
+    state.posts = posts
+  },
+  [mutationType.SETTING_PAGE] (state, page) {
+    state.currPage = page
   }
 }
-
 export default new Vuex.Store({
   state,
-  mutation
+  mutations,
+  strict: debug
 })

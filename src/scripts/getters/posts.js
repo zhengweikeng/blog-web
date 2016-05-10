@@ -1,5 +1,17 @@
-const posts = ({posts}) => posts
+const posts = ({posts}) => {
+  if (Object.keys(posts).length > 0) {
+    return posts.catalogues
+  }
+  return []
+}
 
-const total = ({total}) => total
+const total = ({posts, year}) => {
+  if (Object.keys(posts).length > 0) {
+    return posts.total
+  }
+  return 0
+}
 
-export {posts, total}
+const currPage = ({currPage}) => currPage
+
+export {posts, total, currPage}
