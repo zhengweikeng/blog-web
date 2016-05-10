@@ -1,7 +1,7 @@
 <template lang="jade">
 .post-list.vertical
   years-select
-  tags-select
+  tags-select(query="true")
   posts-title
   posts-pager
 </template>

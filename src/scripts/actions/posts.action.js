@@ -10,6 +10,15 @@ const fetchPosts = ({dispatch, state}, {page, limit}) => {
   })
 }
 
+const fetchPostsByTag = ({dispatch, state}, {tag, page, limit}) => {
+  Vue.http.get(`posts/tag/${tag}`, {page, limit})
+  .then(function (res) {
+    if (res.data) {
+     dispatch(FETCH_POSTS, res.data) 
+    }
+  })
+}
+
 const setPage = ({dispatch}, page) => dispatch(SETTING_PAGE, page)
 
-export {fetchPosts, setPage}
+export {fetchPosts, setPage, fetchPostsByTag}
