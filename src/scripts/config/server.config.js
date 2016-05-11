@@ -1,6 +1,6 @@
 const serverEnv = {
   production: {
-    server: '192.168.31.225:3000'
+    server: 'http://115.28.176.80:8000'
   },
   development: {
     server: 'http://127.0.0.1:3000'
