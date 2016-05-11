@@ -1,3 +1,8 @@
+开发
+```bash
+npm run dev
+```
+
 部署
 ```bash
 npm start
