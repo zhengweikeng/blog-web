@@ -13,4 +13,25 @@
       ul.nav.navbar-nav
         li(v-link-active)
           a(v-link="{path: '/', activeClass: 'active'}") Blogs
+      ul.nav.navbar-nav.navbar-right.logo-area
+        li
+          a.logoLink(href="https://github.com/zhengweikeng" target="_blank")  
+            img.logo(src="./images/github.png")
 </template>
+
+<style lang="less">
+.logo-area {
+  li {
+    a {
+      height: 50px;
+      padding-top: 10px!important;
+    }
+  }
+  .logo {
+    width: 30px;
+    height: 30px;
+    
+    // padding-top: 10px;
+  }
+}
+</style>
